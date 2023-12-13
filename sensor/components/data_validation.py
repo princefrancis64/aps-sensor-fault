@@ -19,7 +19,7 @@ class DataValidation:
             logging.info(f"{'>>*20'} Data Validation {'<<'*20}")
             self.data_validation_config = data_validation_config
             self.data_ingestion_artifact = data_ingestion_artifact
-            self.validation_error = dict()
+            self.validation_error = dict() 
         except Exception as e:
             raise SensorException(e, sys)
 
@@ -42,7 +42,7 @@ class DataValidation:
             drop_column_names = null_report[null_report>threshold].index
 
             logging.info(f"Columns to drop:  {list(drop_column_names)}")
-            self.validation_error["report_key_name"] = list(drop_column_names)
+            self.validation_error[report_key_name] = list(drop_column_names)
             df.drop(list(drop_column_names),axis = 1,inplace = True)
 
             #return None no columns left
@@ -60,7 +60,7 @@ class DataValidation:
             missing_columns = []
             for base_column  in base_columns:
                 if base_column not in current_columns:
-                    logging.info(f"Column:[{base} is not available.]")
+                    logging.info(f"Column:[{base_column} is not available.]")
                     missing_columns.append(base_column)
 
             if len(missing_columns)>0:
@@ -95,7 +95,7 @@ class DataValidation:
                         "pvalues":float(same_distribution.pvalue),
                         "same_distribution":False
                     }
-                    #different distribution
+                    
             self.validation_error[report_key_name] = drift_report
         except Exception as e:
             raise SensorException(e,sys)
@@ -143,6 +143,6 @@ class DataValidation:
 
             data_validation_artifact = artifact_entity.DataValidationArtifact(report_file_path = self.data_validation_config.report_file_path, )
             logging.info(f"Data validation artifact: {data_validation_artifact}")
-            return data_validation_artifactq
+            return data_validation_artifact
         except Exception as e:
             raise SensorException(e, sys)
