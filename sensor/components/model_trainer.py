@@ -42,14 +42,14 @@ class ModelTrainer:
 
             logging.info(f"Splitting input and target feature from both train and test array")
             x_train,y_train = train_arr[:,:-1],train_arr[:,-1]
-            x_test,y_train = test_arr[:,:-1],test_arr[:,-1]
+            x_test,y_test = test_arr[:,:-1],test_arr[:,-1]
 
             logging.info(f"Train the model")
-            model = self.train_model(x=x_train,y=y_train)
+            model = self.train_model(x=x_train, y=y_train)
 
             logging.info(f"Calculating f1 train score")
             yhat_train = model.predict(x_train)
-            f1_train_score = f1_score(y_true = y_train,y_pred=y_hat_train)
+            f1_train_score = f1_score(y_true = y_train,y_pred=yhat_train)
 
             logging.info("Calculating f1 test score")
             yhat_test = model.predict(x_test)
