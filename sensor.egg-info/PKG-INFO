@@ -23,4 +23,3 @@ Requires-Dist: PyYAML
 Requires-Dist: numpy
 Requires-Dist: scikit-learn
 Requires-Dist: apache-airflow
-Requires-Dist: PyYAML
