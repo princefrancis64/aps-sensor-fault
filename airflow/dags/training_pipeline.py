@@ -13,7 +13,7 @@ with DAG(
     # [END default_args]
     description='Sensor Fault Detection',
     schedule_interval="@weekly",
-    start_date=pendulum.datetime(2023, 12, 15, tz="UTC"),
+    start_date=pendulum.datetime(2022, 12, 11, tz="UTC"),
     catchup=False,
     tags=['example'],
 ) as dag:
@@ -40,4 +40,4 @@ with DAG(
 
     )
 
-    training_pipeline >> sync_data_
+    training_pipeline >> sync_data_to_s3
