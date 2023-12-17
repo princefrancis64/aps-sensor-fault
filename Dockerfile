@@ -1,8 +1,7 @@
 FROM python:3.8
 
-# Create a non-root user
-RUN useradd -ms /bin/bash princefrancis64
-USER princefrancis64
+# Create a root user
+USER root
 
 RUN mkdir /app
 COPY . /app/
