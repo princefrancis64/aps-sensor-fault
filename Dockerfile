@@ -29,4 +29,4 @@ RUN apt-get update -y && apt-get install -y awscli
 
 # Specify the default command to run on container startup
 ENTRYPOINT ["/bin/sh", "start.sh"]
-CMD []
+CMD ["./start.sh"]
