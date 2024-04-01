@@ -24,4 +24,15 @@ git init
 ```
 
 
-asdfasdf
+### AWS Deployment
+
+```
+IAM
+Policies:  AmazonEC2ContainerRegistryFullAccess
+AmazonEC2FullAccess
+```
+
+```
+EC2 Installing docker
+
+```
